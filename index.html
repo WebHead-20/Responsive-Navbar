@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- WEB IDEAS -->
+<html lang="en" dir="ltr">
+<head>
+   <meta charset="utf-8">
+   <title>Responsive Navbar with Search Box | Web Ideas</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css">
+   <!-- Font Awesome link (icons) -->
+   <script src="https://kit.fontawesome.com/de270889e1.js" crossorigin="anonymous"></script>
+</head>
+<body>
+   <nav>
+      <div class="menu-icon">
+         <span class="fas fa-bars"></span>
+      </div>
+      <div class="logo">Web Ideas</div>
+      <div class="nav-items">
+         <li class="tab"><a>Home</a></li>
+         <li class="tab"><a>About</a></li>
+         <li class="tab"><a>Blogs</a></li>
+         <li class="tab"><a>Contact</a></li>
+         <li class="tab"><a>Feedback</a></li>
+      </div>
+      <div class="search-icon">
+         <span class="fas fa-search"></span>
+      </div>
+      <div class="cancel-icon">
+         <span class="fas fa-times"></span>
+      </div>
+      <form action="#">
+         <input type="search" class="search-data" placeholder="Search" required>
+         <button type="submit" class="fas fa-search"></button>
+      </form>
+   </nav>
+
+   <script>
+      let menuBtn = document.querySelector(".menu-icon span");
+      let searchBtn = document.querySelector(".search-icon");
+      let cancelBtn = document.querySelector(".cancel-icon");
+      let form = document.querySelector("form");
+      let items = document.querySelector(".nav-items");
+      let tabs = document.querySelectorAll(".tab");
+
+      menuBtn.onclick = ()=>{
+         items.classList.add("active");
+         menuBtn.classList.add("hide");
+         searchBtn.classList.add("hide");
+         cancelBtn.classList.add("show");
+         for (let tab of tabs) {
+            tab.classList.add('slide');
+         }
+      }
+      cancelBtn.onclick = ()=>{
+         items.classList.remove("active");
+         menuBtn.classList.remove("hide");
+         searchBtn.classList.remove("hide");
+         cancelBtn.classList.remove("show");
+         cancelBtn.style.color = "#c059d3";
+         form.classList.remove("active");
+         for (let tab of tabs) {
+            tab.classList.remove('slide');
+         }
+      }
+      searchBtn.onclick = ()=>{
+         searchBtn.classList.add("hide");
+         cancelBtn.classList.add("show");
+         form.classList.add("active");
+      }
+   </script>
+</body>
+</html>
+
